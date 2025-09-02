@@ -1,0 +1,14 @@
+﻿@page "/"
+
+<PageTitle>Chat App</PageTitle>
+
+@code{
+	protected override async Task OnInitializedAsync()
+	{
+		var hubConnection = new HubConnectionBuilder()
+		.WithUrl($"https://localhost:7155/chathub")
+		.Build();
+
+		await hubConnection.StartAsync();
+	}
+}
